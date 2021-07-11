@@ -1,6 +1,7 @@
 body {
 	background-color: #B3E6FF;
 	color: #000;
+  font-family: "ＭＳ ゴシック";
 }
 
 .header {
@@ -37,6 +38,12 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+}
+
+@media (max-width: 445px) {
+    .link {
+        width: 80%;
+    }
 }
 
 .link:hover {
