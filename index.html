@@ -7,6 +7,29 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./favicon.ico" id="favicon">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
+  <script>
+  const deviceUA = window.navigator.userAgent.toLowerCase();
+  const is_iPhone = deviceUA.indexOf('iphone') != -1 && deviceUA.indexOf('ipod') == -1; // iPhone (ここでは iPod touch を除外)
+  const is_iPad = deviceUA.indexOf('ipad') != -1 || deviceUA.indexOf('macintosh') > -1 && 'ontouchend' in document; // iPad (旧 iOS, 新 iPad OS とも
+  const is_Android = deviceUA.indexOf('android') != -1; // Android
+  const id = "100002385170688"
+  if(is_iPhone || is_iPad) { // iPhone, iPad
+    fbPageUrl = "fb://page?id=" + id;
+  }
+  else if(is_Android) { // Android
+    fbPageUrl = "fb://page/" + id;
+  }
+  else { // PC, iPod touch
+    fbPageUrl = "https://www.facebook.com/" + id;
+  }
+  function fbPageLink() {
+    if(is_iPhone || is_iPad || is_Android) { // iPhone, iPad, Android なら
+      location.href = fbPageUrl; // アプリで起動する
+    } else { // PC, iPod touch なら
+      open( fbPageUrl, "_blank" ) ; // ブラウザ別タブで開く
+    }
+  };
+  </script>
 </head>
 
 <body>
@@ -19,7 +42,7 @@
   <div class="container">
     <div class="link">
       <img src="./facebook_logo.png" class="logo">Facebook
-      <a href="https://www.facebook.com/profile.php?id=100002385170688" target="_blank"></a>
+      <a href="javascript:void(0);" onclick="fbPageLink()" target="_blank"></a>
     </div>
     <div class="link">
       <img src="./twitter_logo.png" class="logo">Twitter
