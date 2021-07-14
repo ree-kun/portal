@@ -14,10 +14,10 @@
   const is_Android = deviceUA.indexOf('android') != -1; // Android
   const id = "100002385170688"
   if(is_iPhone || is_iPad) { // iPhone, iPad
-    fbPageUrl = "fb://page?id=" + id;
+    fbPageUrl = "fb://profile?id=" + id;
   }
   else if(is_Android) { // Android
-    fbPageUrl = "fb://page/" + id;
+    fbPageUrl = "fb://profile/" + id;
   }
   else { // PC, iPod touch
     fbPageUrl = "https://www.facebook.com/" + id;
